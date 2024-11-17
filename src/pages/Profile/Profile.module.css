@@ -1,82 +1,81 @@
 /*loader*/
 .container {
-    --uib-size: 35px;
-    --uib-color: black;
-    --uib-speed: 1s;
-    --uib-stroke: 3.5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: var(--uib-size);
-    height: calc(var(--uib-size) * 0.9);
+  --uib-size: 35px;
+  --uib-color: black;
+  --uib-speed: 1s;
+  --uib-stroke: 3.5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--uib-size);
+  height: calc(var(--uib-size) * 0.9);
 }
 
 .bar {
-    width: var(--uib-stroke);
-    height: 100%;
-    background-color: var(--uib-color);
-    transition: background-color 0.3s ease;
+  width: var(--uib-stroke);
+  height: 100%;
+  background-color: var(--uib-color);
+  transition: background-color 0.3s ease;
 }
 
 .bar:nth-child(1) {
-    animation: grow var(--uib-speed) ease-in-out calc(var(--uib-speed) * -0.45)
+  animation: grow var(--uib-speed) ease-in-out calc(var(--uib-speed) * -0.45)
     infinite;
 }
 
 .bar:nth-child(2) {
-    animation: grow var(--uib-speed) ease-in-out calc(var(--uib-speed) * -0.3)
+  animation: grow var(--uib-speed) ease-in-out calc(var(--uib-speed) * -0.3)
     infinite;
 }
 
 .bar:nth-child(3) {
-    animation: grow var(--uib-speed) ease-in-out calc(var(--uib-speed) * -0.15)
+  animation: grow var(--uib-speed) ease-in-out calc(var(--uib-speed) * -0.15)
     infinite;
 }
 
 .bar:nth-child(4) {
-    animation: grow var(--uib-speed) ease-in-out infinite;
+  animation: grow var(--uib-speed) ease-in-out infinite;
 }
 
 @keyframes grow {
-    0%,
-    100% {
-        transform: scaleY(0.3);
-    }
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
 
-    50% {
-        transform: scaleY(1);
-    }
+  50% {
+    transform: scaleY(1);
+  }
 }
 /*_____________*/
 
 .profile {
-    display: flex;
-    height: 80vh;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
 }
 
 .info {
-    background-color: #f9f9f9; /* Light background for contrast */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    margin-top: 20px; /* Spacing from other elements */
+  background-color: #f9f9f9; /* Light background for contrast */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-top: 20px; /* Spacing from other elements */
 }
 
 .info p {
-    font-size: 1rem; /* Readable font size */
-    margin: 10px 0; /* Spacing between lines */
-    line-height: 1.5; /* Comfortable line spacing */
-    color: #333; /* Dark text color for readability */
+  font-size: 1rem; /* Readable font size */
+  margin: 10px 0; /* Spacing between lines */
+  line-height: 1.5; /* Comfortable line spacing */
+  color: #333; /* Dark text color for readability */
 }
 
 .info strong {
-    color: #555; /* Slightly lighter color for labels */
-    font-weight: bold; /* Emphasis on field names */
+  color: #555; /* Slightly lighter color for labels */
+  font-weight: bold; /* Emphasis on field names */
 }
 
 .info p:last-child {
-    margin-bottom: 0; /* Removes unnecessary spacing for the last item */
+  margin-bottom: 0; /* Removes unnecessary spacing for the last item */
 }
-
