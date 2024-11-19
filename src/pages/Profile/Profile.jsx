@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import ApiContext from "../../context/api.js";
 import styles from "./Profile.module.css";
 import useApi from "../../hooks/useApi.js";
+import Loader from "../../components/Loader/Loader.jsx";
 
 function Profile() {
   let { isLoading, data } = useApi("users.one");
@@ -9,12 +10,7 @@ function Profile() {
   return (
     <div className={styles.profile}>
       {isLoading ? (
-        <div className={styles.container}>
-          <div className={styles.bar}></div>
-          <div className={styles.bar}></div>
-          <div className={styles.bar}></div>
-          <div className={styles.bar}></div>
-        </div>
+        <Loader />
       ) : (
         <div>
           <div className={styles.info}>
