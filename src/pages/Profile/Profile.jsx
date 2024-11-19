@@ -1,32 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import ApiContext from "../../context/api.js";
 import styles from "./Profile.module.css";
+import useApi from "../../hooks/useApi.js";
 
 function Profile() {
-  const api = useContext(ApiContext);
-  const [login, setLogin] = useState(false);
-
-  const [user, setUser] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    api.users
-      .one()
-      .then((response) => {
-        setUser(response);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching posts:", error);
-        setLoading(false);
-      });
-  }, []);
-
-  console.log(user);
+  let { isLoading, data } = useApi("users.one");
 
   return (
     <div className={styles.profile}>
-      {loading ? (
+      {isLoading ? (
         <div className={styles.container}>
           <div className={styles.bar}></div>
           <div className={styles.bar}></div>
@@ -38,17 +20,17 @@ function Profile() {
           <div className={styles.info}>
             <p>
               <strong>Name:</strong>
-              {user.name}
+              {data.name}
             </p>
             <p>
-              <strong>Username:</strong> {user.username}
+              <strong>Username:</strong> {data.username}
             </p>
             <p>
-              <strong>Email:</strong> {user.email}
+              <strong>Email:</strong> {data.email}
             </p>
             <p>
-              <strong>Address:</strong> {user.address.street},{" "}
-              {user.address.suite}, {user.address.city}
+              <strong>Address:</strong> {data.address.street},{" "}
+              {data.address.suite}, {data.address.city}
             </p>
           </div>
         </div>

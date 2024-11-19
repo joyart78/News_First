@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth.js";
 import styles from "./Login.module.css";
 import { useState } from "react";
+import { LOGIN, PASSWORD } from "../../constants/constants.js";
 
 function Login() {
   const navigate = useNavigate();
@@ -16,10 +17,8 @@ function Login() {
     const form = e.target;
     const user = form.username.value;
     const password = form.password.value;
-    const userName = "Admin";
-    const userPassword = "12345";
 
-    if (user === userName && password === userPassword) {
+    if (user === LOGIN && password === PASSWORD) {
       signin(user, () => navigate(fromPage, { replace: true }));
     } else {
       form.username.value = "";
