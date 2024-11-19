@@ -6,10 +6,6 @@ import useApi from "../../hooks/useApi.js";
 function News() {
   let { isLoading, data } = useApi("posts.all");
 
-  let itemsElem = data.map((post) => (
-    <Post key={post.id} title={post.title} body={post.body} />
-  ));
-
   return (
     <div className={style.posts}>
       {isLoading ? (
@@ -20,7 +16,9 @@ function News() {
           <div className={style.bar}></div>
         </div>
       ) : (
-        itemsElem
+        data.map((post) => (
+          <Post key={post.id} title={post.title} body={post.body} />
+        ))
       )}
     </div>
   );
