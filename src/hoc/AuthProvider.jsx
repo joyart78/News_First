@@ -2,18 +2,12 @@ import { createContext, useState } from "react";
 
 export const AuthContext = createContext(null);
 
+const getUserFromLS = () => {
+  return JSON.parse(localStorage.getItem("user"));
+};
+
 export const AuthProvider = ({ children }) => {
-  const userData = localStorage.getItem("user");
-  let parsedUser = null;
-
-  try {
-    parsedUser = JSON.parse(userData);
-  } catch (error) {
-    console.error("Ошибка при парсинге данных из localStorage:", error);
-    localStorage.removeItem("user");
-  }
-
-  const [user, setUser] = useState(parsedUser);
+  const [user, setUser] = useState(getUserFromLS() || null);
 
   const signin = (User, cb) => {
     setUser(User);
