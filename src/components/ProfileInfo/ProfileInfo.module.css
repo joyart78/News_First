@@ -1,0 +1,23 @@
+.info {
+  background-color: #f9f9f9; /* Light background for contrast */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-top: 20px; /* Spacing from other elements */
+}
+
+.info p {
+  font-size: 1rem; /* Readable font size */
+  margin: 10px 0; /* Spacing between lines */
+  line-height: 1.5; /* Comfortable line spacing */
+  color: #333; /* Dark text color for readability */
+}
+
+.info strong {
+  color: #555; /* Slightly lighter color for labels */
+  font-weight: bold; /* Emphasis on field names */
+}
+
+.info p:last-child {
+  margin-bottom: 0; /* Removes unnecessary spacing for the last item */
+}

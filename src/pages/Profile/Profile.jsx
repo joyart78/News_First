@@ -3,6 +3,7 @@ import ApiContext from "../../context/api.js";
 import styles from "./Profile.module.css";
 import useApi from "../../hooks/useApi.js";
 import Loader from "../../components/Loader/Loader.jsx";
+import ProfileInfo from "../../components/ProfileInfo/ProfileInfo.jsx";
 
 function Profile() {
   let { isLoading, data } = useApi("users.one");
@@ -12,24 +13,14 @@ function Profile() {
       {isLoading ? (
         <Loader />
       ) : (
-        <div>
-          <div className={styles.info}>
-            <p>
-              <strong>Name:</strong>
-              {data.name}
-            </p>
-            <p>
-              <strong>Username:</strong> {data.username}
-            </p>
-            <p>
-              <strong>Email:</strong> {data.email}
-            </p>
-            <p>
-              <strong>Address:</strong> {data.address.street},{" "}
-              {data.address.suite}, {data.address.city}
-            </p>
-          </div>
-        </div>
+        <ProfileInfo
+          name={data.name}
+          username={data.username}
+          email={data.email}
+          street={data.address.street}
+          suite={data.address.suite}
+          city={data.address.city}
+        />
       )}
     </div>
   );
