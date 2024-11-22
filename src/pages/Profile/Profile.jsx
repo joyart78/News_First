@@ -6,7 +6,7 @@ import Loader from "../../components/Loader/Loader.jsx";
 import ProfileInfo from "../../components/ProfileInfo/ProfileInfo.jsx";
 
 function Profile() {
-  let { isLoading, data } = useApi("users.one");
+  let { isLoading, data } = useApi("api.getUser");
 
   return (
     <div className={styles.profile}>
