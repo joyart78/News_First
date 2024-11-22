@@ -5,7 +5,7 @@ import useApi from "../../hooks/useApi.js";
 import Loader from "../../components/Loader/Loader.jsx";
 
 function News() {
-  let { isLoading, data } = useApi("posts.all");
+  let { isLoading, data } = useApi("api.getAllPosts");
 
   return (
     <div className={style.posts}>
