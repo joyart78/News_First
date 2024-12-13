@@ -14,8 +14,9 @@ function Profile() {
   const usersLoading = useSelector((state) => state.users.loading);
 
   useEffect(() => {
-    console.log(1);
-    dispatch(fetchUsers());
+    if (!user) {
+      dispatch(fetchUsers());
+    }
   }, []);
 
   // let { isLoading, data } = useApi("api.getUser");

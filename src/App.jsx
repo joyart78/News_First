@@ -6,6 +6,7 @@ import Login from "./pages/Login/Login.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import RequireAuth from "./providers/RequireAuth.jsx";
 import { AuthProvider } from "./providers/AuthProvider.jsx";
+import Converter from "./pages/Exchange/Converter.jsx";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               }
             />
             <Route path="/login" element={<Login />} />
+            <Route path="/converter" element={<Converter />} />
           </Route>
         </Routes>
       </AuthProvider>
