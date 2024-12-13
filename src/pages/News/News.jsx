@@ -10,13 +10,12 @@ function News() {
   const dispatch = useDispatch();
 
   const posts = useSelector((state) => state.posts.data);
-  console.log(posts);
   const postsLoading = useSelector((state) => state.posts.loading);
-  console.log(postsLoading);
 
   useEffect(() => {
-    dispatch(fetchPosts());
-    console.log(1);
+    if (posts.length === 0) {
+      dispatch(fetchPosts());
+    }
   }, [dispatch]);
 
   // let { isLoading, data } = useApi("api.getAllPosts");
