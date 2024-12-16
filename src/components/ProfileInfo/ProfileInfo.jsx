@@ -12,8 +12,7 @@ export default function ProfileInfo({
     <div>
       <div className={styles.info}>
         <p>
-          <strong>Name:</strong>
-          {name}
+          <strong>Name:</strong> {name}
         </p>
         <p>
           <strong>Username:</strong> {username}

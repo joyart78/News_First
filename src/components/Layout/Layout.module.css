@@ -32,7 +32,7 @@ body {
   text-decoration: underline;
 }
 .active {
-  color: crimson;
+  color: #a789dd;
 }
 .main {
   overflow: auto;

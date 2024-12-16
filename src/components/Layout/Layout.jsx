@@ -18,6 +18,9 @@ function Layout() {
           <NavLink to="/profile" className={setActive}>
             Profile
           </NavLink>
+          <NavLink to="/converter" className={setActive}>
+            Converter
+          </NavLink>
         </div>
       </header>
 
