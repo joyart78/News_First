@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useApi from "../../hooks/useApi.js";
 import { setResultValue } from "./InputSlice.js";
 import { fetchCurr } from "./InputSlice.js";
+import arrows from "./img/arrows-exchange.svg";
 
 export default function Converter() {
   const dispatch = useDispatch();
@@ -38,10 +39,7 @@ export default function Converter() {
       <div className={styles.form}>
         <Input />
         <button>
-          <img
-            src="src/pages/Exchange/img/arrows-exchange.svg"
-            alt="arrows-exchange"
-          />
+          <img src={arrows} alt="arrows-exchange" />
         </button>
         <Input isDisabled={true} inputValue={resultValue} isResult={true} />
       </div>
