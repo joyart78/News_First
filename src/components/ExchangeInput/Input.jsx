@@ -8,6 +8,19 @@ import {
 } from "../../pages/Exchange/InputSlice.js";
 import { useDispatch, useSelector } from "react-redux";
 
+import usdIcon from "./image/usd.svg";
+import eurIcon from "./image/EUR.svg";
+import gbpIcon from "./image/Pound.svg";
+import cadIcon from "./image/CAD.svg";
+import dropdownIcon from "./image/down-line.svg";
+
+const icons = {
+  USD: usdIcon,
+  EUR: eurIcon,
+  GBP: gbpIcon,
+  CAD: cadIcon,
+};
+
 export default function Input({
   isDisabled = false,
   inputValue,
@@ -19,6 +32,7 @@ export default function Input({
     { label: "GBP", icon: "Pound.svg" },
     { label: "CAD", icon: "CAD.svg" },
   ];
+
   const currency = isResult
     ? localStorage.getItem("currencyResult")
     : localStorage.getItem("currency");
@@ -31,6 +45,7 @@ export default function Input({
           icon: "usd.svg",
         },
   );
+
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState(inputValue);
 
@@ -62,16 +77,12 @@ export default function Input({
           }}
         >
           <img
-            src={`src/components/ExchangeInput/image/${activeCurrency.icon}`}
+            src={icons[activeCurrency.label]}
             alt={activeCurrency.label}
             className={styles.btn_img}
           />
           {activeCurrency.label}
-          <img
-            src="src/components/ExchangeInput/image/down-line.svg"
-            alt="dropdown"
-            className={styles.btn_img}
-          />
+          <img src={dropdownIcon} alt="dropdown" className={styles.btn_img} />
         </button>
         {isOpen && (
           <ul ref={dropdownRef} className={styles.select__form}>
@@ -95,7 +106,7 @@ export default function Input({
                 }}
               >
                 <img
-                  src={`src/components/ExchangeInput/image/${currency.icon}`}
+                  src={icons[currency.label]}
                   alt={currency.label}
                   className={styles.btn_img}
                 />
