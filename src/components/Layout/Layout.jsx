@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import styles from "./Layout.module.css";
+import CurrencyWidget from "../CurrencyWidget/CurrencyWidget.jsx";
 
 const setActive = ({ isActive }) =>
   isActive ? `${styles.link} ${styles.active}` : styles.link;
@@ -19,7 +20,7 @@ function Layout() {
             Profile
           </NavLink>
           <NavLink to="/converter" className={setActive}>
-            Converter
+            <CurrencyWidget />
           </NavLink>
         </div>
       </header>

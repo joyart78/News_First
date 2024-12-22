@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import ApiContext from "../../context/api.js";
 import styles from "./Profile.module.css";
 import useApi from "../../hooks/useApi.js";
@@ -23,7 +23,7 @@ function Profile() {
 
   return (
     <div className={styles.profile}>
-      {usersLoading === "loading" && usersLoading === "idle" ? (
+      {usersLoading === "loading" || usersLoading === "idle" ? (
         <Loader />
       ) : usersLoading === "failed" ? (
         "Server Error"
