@@ -1,31 +1,32 @@
 import axios from "axios";
 
-class HttpClient {
-  constructor(baseURL, timeout = 10000) {
-    this.client = axios.create({ baseURL, timeout });
-  }
+function axiosCreate(baseUrl) {
+  return axios.create({
+    baseURL: baseUrl,
+    timeout: 5000,
+  });
+}
 
-  async get(url) {
-    return await this.client.get(url);
+export async function fetchPosts() {
+  const axios = axiosCreate(import.meta.env.VITE_API_URL_POSTS_AND_USER);
+
+  try {
+    const response = await axios.get("/posts");
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
 }
 
-class Api {
-  constructor(baseURL) {
-    this.http = new HttpClient(baseURL);
+export async function fetchUser() {
+  const axios = axiosCreate(import.meta.env.VITE_API_URL_POSTS_AND_USER);
+
+  try {
+    const response = await axios.get("/users/1");
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
-
-  getUser = async () => {
-    const res = await this.http.get(`/users/1`);
-    return res.data;
-  };
-
-  getAllPosts = async () => {
-    const res = await this.http.get("/posts");
-    return res.data;
-  };
 }
-
-const api = new Api("https://jsonplaceholder.typicode.com");
-
-export default { api };
